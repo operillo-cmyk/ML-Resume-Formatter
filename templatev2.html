@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Professional Resume</title>
+    <style>
+        @page resume {
+            margin: 0;
+            margin-top: 20mm;
+        }
+
+        @page resume:first {
+            margin-top: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #ffffff;
+            page: resume;
+        }
+
+        /* Header Section - Navy Banner with Geometric Accents */
+        .header-banner {
+            background-color: #002C5F;
+            padding: 60px 30px 10px 50px;
+            position: relative;
+            margin: 0;
+            width: 60%;
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 80px;
+            border-bottom-right-radius: 80px;
+            overflow: hidden;
+        }
+
+        .header-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -80px;
+            width: 160px;
+            height: 100%;
+            background-color: #002C5F;
+            transform: skewX(-20deg);
+        }
+
+        .header-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -60px;          /* larger = deeper overlap */
+            width: 120px;          /* larger = wider angled block */
+            height: 100%;
+            background-color: #002C5F;
+            transform: skewX(-20deg); /* more negative = sharper angle */
+        }
+
+        .candidate-header {
+            text-align: center;
+            margin: 35px 0 30px;
+        }
+
+        .candidate-name {
+            font-size: 28pt;
+            font-weight: bold;
+            color: #002C5F;
+            margin: 0;
+            letter-spacing: -0.3px;
+        }
+
+        .candidate-contact {
+            text-align: center;
+            font-size: 10pt;
+            color: #555;
+            margin-top: 8px;
+        }
+
+        .candidate-contact .contact-item {
+            display: inline;
+        }
+
+        .candidate-contact .contact-separator {
+            color: #002C5F;
+            margin: 0 6px;
+        }
+
+        .header-accent-line {
+            width: 80px;
+            height: 4px;
+            background-color: #F7B500;
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        .header-logo {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 5%;
+            max-width: 120px;
+            height: auto;
+            z-index: 20;
+            opacity: 1;
+        }
+        
+        /* Header Wrapper */
+        .header-wrapper {
+            position: relative;
+            margin: 0 0 30px 0;
+            overflow: visible;
+        }
+
+        /* Content Container */
+        .content-container {
+            margin-left: 20mm;
+            margin-right: 20mm;
+            margin-top: 15mm;
+            margin-bottom: 15mm;
+            padding: 0;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #002C5F;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 0 20px 0;
+            padding-left: 15px;
+            border-left: 4px solid #F7B500;
+            position: relative;
+        }
+
+        /* Alternating Background Blocks */
+        .section:nth-of-type(even) .section-content {
+            background-color: #F5F5F5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .section:nth-of-type(odd) .section-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin-top: 10px;
+        }
+
+        /* Experience/Education Items */
+        .experience-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 3px;
+            height: 18px;
+            background-color: #4D8FCE;
+            border-radius: 2px;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-item h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #002C5F;
+            margin: 0 0 6px 0;
+            letter-spacing: -0.2px;
+        }
+
+        .experience-details {
+            font-size: 10pt;
+            color: #555;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+        }
+
+        .experience-details strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Bullet Points */
+        ul {
+            padding-left: 20px;
+            margin: 8px 0 0 0;
+        }
+
+        li {
+            margin-bottom: 6px;
+            color: #555;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        li::marker {
+            color: #4D8FCE;
+        }
+
+        .summary-list {
+            padding-left: 20px;
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+
+        .summary-list li {
+            margin-bottom: 6px;
+            color: #555;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        /* Decorative Accent for All Sections */
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -10px;
+            width: 40px;
+            height: 40px;
+            background-color: #F7B500;
+            opacity: 0.1;
+            border-radius: 6px;
+            transform: rotate(-10deg);
+        }
+
+        /* Additional spacing for sections */
+        .section-content {
+            box-shadow: 0 1px 3px rgba(0, 44, 95, 0.08);
+        }
+
+        /* Project/Structured Items */
+        .project-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .project-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 3px;
+            height: 18px;
+            background-color: #4D8FCE;
+            border-radius: 2px;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-item h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #002C5F;
+            margin: 0 0 6px 0;
+        }
+
+        .project-description {
+            color: #555;
+            font-size: 10pt;
+            margin: 0 0 8px 0;
+        }
+
+        /* Simple list styling for non-structured sections */
+        .simple-list {
+            background-color: transparent;
+            padding: 0;
+            border: none;
+        }
+
+        .simple-list ul {
+            margin-top: 0;
+        }
+
+        /* Ensure proper rendering in PDF */
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Wrapper -->
+    <div class="header-wrapper">
+        <div class="header-banner">
+        </div>
+        <img src="{{ logo_path if logo_path else 'ml-logo (1).png' }}" alt="Morgan Latif Logo" class="header-logo">
+    </div>
+
+    <div class="content-container">
+
+        <div class="candidate-header">
+            <h1 class="candidate-name">{{ name if name else "Confidential" }}</h1>
+            <div class="header-accent-line"></div>
+            {% set contact = namespace(items=[]) %}
+            {% if email %}{% set contact.items = contact.items + [email] %}{% endif %}
+            {% if phone %}{% set contact.items = contact.items + [phone] %}{% endif %}
+            {% if phone_number %}{% set contact.items = contact.items + [phone_number] %}{% endif %}
+            {% if mobile %}{% set contact.items = contact.items + [mobile] %}{% endif %}
+            {% if location %}{% set contact.items = contact.items + [location] %}{% endif %}
+            {% if linkedin %}{% set contact.items = contact.items + [linkedin] %}{% endif %}
+            {% if linkedin_url %}{% set contact.items = contact.items + [linkedin_url] %}{% endif %}
+            {% if website %}{% set contact.items = contact.items + [website] %}{% endif %}
+            {% if portfolio %}{% set contact.items = contact.items + [portfolio] %}{% endif %}
+            {% if github %}{% set contact.items = contact.items + [github] %}{% endif %}
+            {% if contact_info %}
+                {% if contact_info is string %}
+                    {% set contact.items = contact.items + [contact_info] %}
+                {% else %}
+                    {% for item in contact_info %}
+                        {% if item %}{% set contact.items = contact.items + [item] %}{% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+            {% if contact_details %}
+                {% if contact_details is string %}
+                    {% set contact.items = contact.items + [contact_details] %}
+                {% else %}
+                    {% for item in contact_details %}
+                        {% if item %}{% set contact.items = contact.items + [item] %}{% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+            {% if contact.items %}
+            <div class="candidate-contact">
+                {% for item in contact.items %}
+                <span class="contact-item">{{ item }}</span>
+                {% if not loop.last %}
+                <span class="contact-separator">|</span>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+
+        <!-- Professional Experience Section -->
+        {% if experience %}
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <div class="section-content">
+                {% for job in experience %}
+                <div class="experience-item">
+                    <h3>{{ job.title if job.title else "Confidential" }}</h3>
+                    <p class="experience-details">
+                        <strong>{{ job.company if job.company else "Confidential" }}</strong> |
+                        {{ job.dates if job.dates else "Confidential" }}
+                    </p>
+                    {% if job.description %}
+                    <ul class="summary-list">
+                        {% for point in job.description %}
+                        <li>{{ point }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Education Section -->
+        {% if education %}
+        <div class="section">
+            <h2>Education</h2>
+            <div class="section-content">
+                {% for edu in education %}
+                <div class="experience-item">
+                    {% if edu.degree or edu.institution %}
+                    <h3>{{ edu.degree if edu.degree else "Education" }}</h3>
+                    <p class="experience-details">
+                        {% if edu.institution %}<strong>{{ edu.institution }}</strong>{% endif %}
+                        {% if edu.dates %} | {{ edu.dates }}{% endif %}
+                    </p>
+                    {% endif %}
+                    {% if edu.details %}
+                    <ul class="summary-list">
+                        {% for detail in edu.details %}
+                        <li>{{ detail }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Dynamic Other Sections -->
+        {% if other_sections %}
+            {% for section in other_sections %}
+            <div class="section">
+                <h2>{{ section['section_title'] }}</h2>
+                
+                {% if section['type'] == 'structured' %}
+                    <div class="section-content">
+                        <!-- Structured entries (like experience) -->
+                        {% for entry in section['entries'] %}
+                        <div class="project-item">
+                            <h3>{{ entry['title'] }}</h3>
+                            <p class="experience-details">
+                                {% if entry.get('organization') %}<strong>{{ entry['organization'] }}</strong>{% endif %}
+                                {% if entry.get('dates') %}
+                                    {% if entry.get('organization') %} | {% endif %}
+                                    {{ entry['dates'] }}
+                                {% endif %}
+                            </p>
+                            {% if entry.get('description') %}
+                            <ul class="summary-list">
+                                {% for point in entry['description'] %}
+                                <li>{{ point }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                {% elif section['type'] == 'list' %}
+                    <div class="section-content simple-list">
+                        <!-- Simple list items -->
+                        <ul>
+                            {% for item in section['items'] %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
+

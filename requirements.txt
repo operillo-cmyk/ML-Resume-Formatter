@@ -1,0 +1,10 @@
+streamlit
+google-generativeai
+#pymupdf4llm
+PyMuPDF
+python-docx
+pymupdf4llm
+Jinja2
+weasyprint>=60
+pypdf
+docx2pdf
