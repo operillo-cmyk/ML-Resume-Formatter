@@ -533,7 +533,7 @@ def merge_pdfs(main_pdf_path, candidate_sheet_path, output_path):
 def main():
     st.title("📄 Resume Formatter")
     st.markdown("""
-    Transform your resume into a standardized, professional format.
+    Transform your resume into a standardised, professional format.
     
     **How it works:**
     1. Upload your resume (PDF or DOCX)
@@ -1177,4 +1177,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
